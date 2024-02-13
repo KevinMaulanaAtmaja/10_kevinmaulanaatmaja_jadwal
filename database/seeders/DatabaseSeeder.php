@@ -22,6 +22,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         // $this->run(GuruSeeder::class);
-        $this->run(MapelSeeder::class);
+        // $this->run(MapelSeeder::class);
     }
 }
