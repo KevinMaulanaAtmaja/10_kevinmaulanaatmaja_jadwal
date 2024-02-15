@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mapel;
 use Illuminate\Http\Request;
 
 class MapelController extends Controller
@@ -11,7 +12,8 @@ class MapelController extends Controller
      */
     public function index()
     {
-        //
+        $mapel = Mapel::latest()->paginate(4);
+        return view('mapel.index', compact('mapel'));
     }
 
     /**
@@ -19,7 +21,7 @@ class MapelController extends Controller
      */
     public function create()
     {
-        //
+        return view('mapel.create');
     }
 
     /**
@@ -27,7 +29,14 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_mapel' => 'required|min:1'
+        ]);
+
+        Mapel::create([
+            'nama_mapel' => $request->nama_mapel
+        ]);
+        return redirect('/mapel')->with('success', 'Berhasil menambahkan data!');
     }
 
     /**
@@ -43,7 +52,8 @@ class MapelController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $mapel = Mapel::find($id);
+        return view('mapel.create', compact('mapel'));
     }
 
     /**
@@ -51,7 +61,8 @@ class MapelController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        return redirect('/mapel')->with('success', 'Berhasil mengubah data!');
     }
 
     /**
@@ -59,6 +70,7 @@ class MapelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        return redirect('/mapel')->with('success', 'Berhasil menghapus data!');
     }
 }

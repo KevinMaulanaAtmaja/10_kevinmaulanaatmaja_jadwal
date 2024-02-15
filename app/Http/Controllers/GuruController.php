@@ -109,7 +109,7 @@ class GuruController extends Controller
         // dd($id);
 
         if ($guru){
-            Storage::delete('public/images/' . $guru->foto);
+            Storage::delete('storage/images/' . $guru->foto);
             $guru->delete();
             return redirect('/guru')->with('success', 'Berhasil menghapus data!');
         }

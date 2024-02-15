@@ -10,5 +10,5 @@ class Mapel extends Model
     use HasFactory;
     protected $table = 'mapels';
     protected $fillable = ['id', 'nama_mapel'];
-    protected $hidden =  ['id_guru'];
+    protected $hidden =  ['id'];
 }
