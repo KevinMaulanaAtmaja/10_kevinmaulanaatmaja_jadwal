@@ -9,7 +9,8 @@
   <body>
 
 
-    <div class="container mt-3 m-auto ">
+    <div class="container mt-3 m-auto">
+        @include('komponen.alert')
         @yield('konten')
     </div>
 
