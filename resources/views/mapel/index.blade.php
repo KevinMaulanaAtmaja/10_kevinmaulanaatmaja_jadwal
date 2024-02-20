@@ -1,9 +1,9 @@
 @extends('layout.main')
 @section('konten')
 <h1>Guru</h1>
-<a href="{{ route('guru.create') }}" class="btn btn-primary my-3">Tambah Data</a>
-<a href="{{ route('guru.create') }}" class="btn btn-primary">Mapel</a>
-<a href="{{ route('mapel.index') }}" class="btn btn-primary mx-3">Pengajar</a>
+<a href="{{ route('mapel.create') }}" class="btn btn-primary my-3">Tambah Data</a>
+<a href="{{ route('guru.index') }}" class="btn btn-primary mx-3">Guru</a>
+<a href="{{ route('mapel.index') }}" class="btn btn-primary">Pengajar</a>
 <table class="table table-info table-striped">
     <thead>
       <tr>
@@ -29,5 +29,5 @@
             @endforeach
         </tbody>
     </table>
-        {{ $guru->links() }}
+        {{ $mapel->links() }}
 @endsection

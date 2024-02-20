@@ -53,7 +53,7 @@ class MapelController extends Controller
     public function edit(string $id)
     {
         $mapel = Mapel::find($id);
-        return view('mapel.create', compact('mapel'));
+        return view('mapel.edit', compact('mapel'));
     }
 
     /**
@@ -61,7 +61,13 @@ class MapelController extends Controller
      */
     public function update(Request $request, string $id)
     {
-
+        $request->validate([
+            'nama_mapel' => 'required|min:1'
+        ]);
+        $mapel = Mapel::find($id);
+        $mapel->update([
+            'nama_mapel' => $request->nama_mapel
+        ]);
         return redirect('/mapel')->with('success', 'Berhasil mengubah data!');
     }
 
@@ -70,7 +76,8 @@ class MapelController extends Controller
      */
     public function destroy(string $id)
     {
-
+        $mapel = Mapel::find($id);
+        $mapel->delete();
         return redirect('/mapel')->with('success', 'Berhasil menghapus data!');
     }
 }
