@@ -13,7 +13,7 @@ class GuruController extends Controller
      */
         public function index()
     {
-        $guru = Guru::latest()->paginate(2);
+        $guru = Guru::latest()->paginate(4);
         return view('guru.index', compact('guru'));
     }
 
@@ -21,7 +21,7 @@ class GuruController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
+    {
         return view('guru.create');
     }
 

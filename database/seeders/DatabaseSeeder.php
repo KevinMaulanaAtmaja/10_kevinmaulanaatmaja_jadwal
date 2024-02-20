@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // $this->run(GuruSeeder::class);
-        // $this->run(MapelSeeder::class);
+        $this->call(GuruSeeder::class);
+        $this->call(MapelSeeder::class);
     }
 }

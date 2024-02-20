@@ -12,7 +12,7 @@ class MapelController extends Controller
      */
     public function index()
     {
-        $mapel = Mapel::latest()->paginate(4);
+        $mapel = Mapel::latest()->paginate(3);
         return view('mapel.index', compact('mapel'));
     }
 
