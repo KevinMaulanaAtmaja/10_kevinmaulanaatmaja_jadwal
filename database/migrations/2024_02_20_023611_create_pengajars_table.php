@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pengajars', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_guru')->constrained('gurus');
-            $table->foreignId('id_mapel')->constrained('mapels')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('id_mapel')->constrained('mapels');
             $table->string('kelas');
             $table->string('jam_pelajaran');
             $table->timestamps();

@@ -16,10 +16,17 @@ class MapelSeeder extends Seeder
     {
         $faker = Factory::create('id_ID');
 
-        for ($i=0; $i < 5; $i++) {
-            Mapel::create([
-                'nama_mapel' => $faker->randomElement(['Matematika', 'IPA', 'IPS', 'Sejarah']),
-            ]);
-        }
+        Mapel::create([
+            'nama_mapel' => 'Matematika',
+        ]);
+        Mapel::create([
+            'nama_mapel' => 'IPA',
+        ]);
+        Mapel::create([
+            'nama_mapel' => 'IPS',
+        ]);
+        Mapel::create([
+            'nama_mapel' => 'Sejarah',
+        ]);
     }
 }

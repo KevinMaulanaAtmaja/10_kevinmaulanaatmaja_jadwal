@@ -3,7 +3,7 @@
     <h1>Guru</h1>
     <a href="{{ route('guru.create') }}" class="btn btn-primary my-3">Tambah Data</a>
     <a href="{{ route('mapel.index') }}" class="btn btn-primary mx-3">Mapel</a>
-    <a href="{{ route('mapel.index') }}" class="btn btn-primary">Pengajar</a>
+    <a href="{{ route('pengajar.index') }}" class="btn btn-primary">Pengajar</a>
     <table class="table table-info table-striped">
         <thead>
           <tr>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\PengajarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,4 @@ Route::get('/', function () {
 
 Route::resource('/guru', GuruController::class);
 Route::resource('/mapel', MapelController::class);
+Route::resource('/pengajar', PengajarController::class);
