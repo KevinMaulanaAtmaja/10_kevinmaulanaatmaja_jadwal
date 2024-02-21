@@ -14,7 +14,7 @@ class PengajarController extends Controller
      */
     public function index()
     {
-        $pengajar = Pengajar::latest()->get();
+        $pengajar = Pengajar::latest()->paginate(3);
         return view('pengajar.index', compact('pengajar'));
     }
 

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
 use Database\Seeders\GuruSeeder;
 use Database\Seeders\MapelSeeder;
@@ -23,5 +24,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(GuruSeeder::class);
         $this->call(MapelSeeder::class);
+        $this->call(PengajarSeeder::class);
     }
 }
