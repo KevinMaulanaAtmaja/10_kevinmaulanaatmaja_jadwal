@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mapel;
+use App\Models\Pengajar;
 use Illuminate\Http\Request;
 
 class MapelController extends Controller
@@ -77,7 +78,16 @@ class MapelController extends Controller
     public function destroy(string $id)
     {
         $mapel = Mapel::find($id);
-        $mapel->delete();
-        return redirect('/mapel')->with('success', 'Berhasil menghapus data!');
+        if ($mapel) {
+            // Periksa apakah mapel masih dipakai dalam peminjaman
+            $p = Pengajar::where('id_mapel', $mapel->id)->exists();
+            // dd($p);
+            if ($p) {
+                return redirect('/mapel')->with('error', 'Data mapel masih dipakai dan tidak dapat dihapus!');
+            }
+
+            $mapel->delete();
+            return redirect('/mapel')->with('success', 'Data berhasil dihapus!');
+        }
     }
 }

@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [GuruController::class, 'index']);
 
 Route::resource('/guru', GuruController::class);
 Route::resource('/mapel', MapelController::class);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Models\Pengajar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -106,12 +107,16 @@ class GuruController extends Controller
     public function destroy(string $id)
     {
         $guru = Guru::find($id);
-        // dd($id);
+        if ($guru) {
+            // Periksa apakah guru masih dipakai dalam pengajar
+            $p = Pengajar::where('id_guru', $guru->id)->exists();
+            // dd($p);
+            if ($p) {
+                return redirect('/guru')->with('error', 'Data guru masih dipakai dan tidak dapat dihapus!');
+            }
 
-        if ($guru){
-            Storage::delete('storage/images/' . $guru->foto);
             $guru->delete();
-            return redirect('/guru')->with('success', 'Berhasil menghapus data!');
+            return redirect('/guru')->with('success', 'Data berhasil dihapus!');
         }
 
     }
